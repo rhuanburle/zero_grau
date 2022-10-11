@@ -1,5 +1,26 @@
-import 'package:flutter/cupertino.dart';
+import 'package:zero_grau/models/cart_model.dart';
 import 'package:zero_grau/models/products_model.dart';
+
+List<CartModel> cartList = [
+  CartModel(
+    id: 1,
+    name: 'Heineken',
+    price: 6.99,
+    quantity: 6,
+  ),
+  CartModel(
+    id: 1,
+    name: 'Carvão Vegetal',
+    price: 11.99,
+    quantity: 1,
+  ),
+  CartModel(
+    id: 1,
+    name: 'Coca-Cola',
+    price: 7.99,
+    quantity: 1,
+  ),
+];
 
 final filterListAlcoholic = [
   'Brahma',
@@ -15,6 +36,13 @@ final filterListNoAlcoholic = [
   'Suco',
   'Energético',
   'Água',
+];
+
+final filterListOthers = [
+  'Gelo',
+  'Sal Grosso',
+  'Carvão',
+  'Churrasqueiras',
 ];
 
 List<ProductsModel> productsItems = [
@@ -112,6 +140,54 @@ List<ProductsModel> productsItems = [
     brand: 'Red Bull',
     unit: 'un',
     size: '250ml',
+    alcoolic: false,
+  ),
+  ProductsModel(
+    id: '9',
+    name: 'Carvão Vegetal',
+    price: '11,99',
+    image: 'assets/images/carvao_6kg.jpeg',
+    description: 'Carvão Vegetal 6kg',
+    category: 'outros',
+    brand: 'vegetal',
+    unit: 'un',
+    size: '6kg',
+    alcoolic: false,
+  ),
+  ProductsModel(
+    id: '10',
+    name: 'Gelo em Escama',
+    price: '5,99',
+    image: 'assets/images/gelo_escama.png',
+    description: 'Saco de Gelo em escama 10kg',
+    category: 'outros',
+    brand: 'Gelo',
+    unit: 'un',
+    size: '10kg',
+    alcoolic: false,
+  ),
+  ProductsModel(
+    id: '11',
+    name: 'Gelo em Cubo',
+    price: '5,99',
+    image: 'assets/images/gelo_cubo.png',
+    description: 'Saco de Gelo em cubo 5kg',
+    category: 'outros',
+    brand: 'Gelo',
+    unit: 'un',
+    size: '5kg',
+    alcoolic: false,
+  ),
+  ProductsModel(
+    id: '12',
+    name: 'Sal Grosso',
+    price: '2,00',
+    image: 'assets/images/sal_grosso.png',
+    description: 'Sal Aji-Sal grosso 1kg',
+    category: 'outros',
+    brand: 'agi-sal',
+    unit: 'un',
+    size: '1kg',
     alcoolic: false,
   )
 ];

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zero_grau/pages/base/base_screen.dart';
-import 'package:zero_grau/pages/common_widgets/user_info.dart';
+import 'package:zero_grau/pages_routes/app_pages.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Zero Grau',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const BaseScreen(),
+      initialRoute: PagesRoutes.baseRoute,
+      getPages: AppPages.pages,
     );
   }
 }

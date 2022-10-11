@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zero_grau/pages/alcoholic/alcoholic_page.dart';
-import 'package:zero_grau/pages/common_widgets/user_info.dart';
-import 'package:zero_grau/models/app_data/app_data.dart';
+import 'package:zero_grau/pages/others/others_page.dart';
+import 'package:zero_grau/pages_routes/app_pages.dart';
 
 import '../noAlcoholic/no_alcoholic_page.dart';
+import 'drawer_menu.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);
@@ -19,18 +21,19 @@ class _BaseScreenState extends State<BaseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerMenu(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         label: Text('Carrinho'),
         icon: Icon(Icons.add_shopping_cart_outlined),
       ),
-      // const Icon(Icons.add_shopping_cart_outlined),
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         title: const Text('Zero Grau'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(PagesRoutes.cartRoute);
+            },
             icon: const Icon(Icons.shopping_cart),
           ),
         ],
@@ -45,7 +48,7 @@ class _BaseScreenState extends State<BaseScreen> {
         children: [
           AlcoholicPage(),
           NoAlcoholicPage(),
-          Center(child: Text('Profile')),
+          OthersPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
