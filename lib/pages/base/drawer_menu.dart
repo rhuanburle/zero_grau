@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../pages_routes/app_pages.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -6,6 +9,11 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(50),
+        ),
+      ),
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -35,17 +43,23 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(PagesRoutes.baseRoute);
+            },
           ),
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Cadastro'),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(PagesRoutes.profileRoute);
+            },
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text('Carrinho'),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(PagesRoutes.cartRoute);
+            },
           ),
           ListTile(
             leading: Icon(Icons.my_library_books_outlined),
