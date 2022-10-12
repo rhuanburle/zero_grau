@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1052294222671",
+    "project_id": "zero-grau-88c05",
+    "storage_bucket": "zero-grau-88c05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052294222671:android:31f8507a048baf17746b3a",
+        "android_client_info": {
+          "package_name": "com.logicSoft.zero_grau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052294222671-3si68unc4qg1dhe2ol6iesi8pphhd469.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRCxc7YJm8UR42jTKBg-65GT9lSeN-U2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052294222671-3si68unc4qg1dhe2ol6iesi8pphhd469.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1052294222671-jgto87d1o80tfiig5g0viodskt6q3cj6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.logicSoft.zeroGrau"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
