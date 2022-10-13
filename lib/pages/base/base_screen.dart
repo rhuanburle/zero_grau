@@ -1,14 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/pages/alcoholic/alcoholic_page.dart';
 import 'package:zero_grau/pages/others/others_page.dart';
 import 'package:zero_grau/pages_routes/app_pages.dart';
-
+import 'package:zero_grau/read_firebase/read_firebase.dart';
 import '../noAlcoholic/no_alcoholic_page.dart';
 import 'drawer_menu.dart';
 
 class BaseScreen extends StatefulWidget {
-  const BaseScreen({Key? key}) : super(key: key);
+  BaseScreen({Key? key}) : super(key: key);
 
   @override
   State<BaseScreen> createState() => _BaseScreenState();
@@ -17,6 +18,13 @@ class BaseScreen extends StatefulWidget {
 class _BaseScreenState extends State<BaseScreen> {
   int currentIndex = 0;
   final pageController = PageController();
+  var readProducts = ReadFirebase();
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   readProducts.readProducts();
+  // }
 
   @override
   Widget build(BuildContext context) {

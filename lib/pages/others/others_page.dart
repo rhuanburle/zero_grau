@@ -38,7 +38,7 @@ class OthersPage extends StatelessWidget {
         ),
         Expanded(
           child: FutureBuilder(
-              future: ctrl.findOthers(),
+              future: ctrl.readProductsOthers(),
               builder: (context, snapshot) {
                 return snapshot.hasData
                     ? ListView.builder(

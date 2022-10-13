@@ -38,7 +38,7 @@ class AlcoholicPage extends StatelessWidget {
         ),
         Expanded(
           child: FutureBuilder(
-              future: ctrl.findAlcoolic(),
+              future: ctrl.readProductsAlcoolic(),
               builder: (context, snapshot) {
                 return snapshot.hasData
                     ? ListView.builder(

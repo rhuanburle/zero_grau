@@ -1,11 +1,35 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zero_grau/models/products_model.dart';
+import 'package:zero_grau/read_firebase/read_firebase.dart';
 import 'package:zero_grau/models/app_data/app_data.dart' as appData;
 
 class AlcoholicControlle {
-  Future findAlcoolic() async {
-    List<ProductsModel> alcoolicList = await appData.productsItems
-        .where((element) => element.alcoolic == true)
-        .toList();
-    return alcoolicList;
+  var readFirebase = ReadFirebase();
+  FirebaseFirestore products = FirebaseFirestore.instance;
+  List productsList = [];
+
+  Future readProductsAlcoolic() async {
+    await products
+        .collection('products')
+        .where('alcoolic', isEqualTo: true)
+        .get()
+        .then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+        productsList.add(
+          ProductsModel(
+            name: result.get('name'),
+            brand: result.get('brand'),
+            unit: result.get('unit'),
+            category: result.get('category'),
+            alcoolic: result.get('alcoolic'),
+            description: result.get('description'),
+            image: result.get('image'),
+            price: result.get('price'),
+            size: result.get('size'),
+          ),
+        );
+      });
+    });
+    return productsList;
   }
 }

@@ -82,7 +82,7 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
+            leading: Icon(Icons.add),
             title: Text('Adicionar Produto'),
             onTap: () {
               Get.toNamed(PagesRoutes.addProducts);
