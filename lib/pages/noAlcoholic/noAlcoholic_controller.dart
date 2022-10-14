@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../read_firebase/read_firebase.dart';
 
 class NoAlcoholicController extends GetxController {
-  var readFirebase = ReadFirebase();
+  List<String> filterListNoAlcoholic = [];
 
   FirebaseFirestore products = FirebaseFirestore.instance;
   List productsListnoAloolic = [];
@@ -34,5 +34,14 @@ class NoAlcoholicController extends GetxController {
       });
     });
     return productsListnoAloolic;
+  }
+
+  findFiltersNoAlcoholic() {
+    productsListnoAloolic.forEach((element) {
+      if (filterListNoAlcoholic.contains(element.category)) {
+        filterListNoAlcoholic.add(element.category.toString());
+      }
+    });
+    return filterListNoAlcoholic;
   }
 }
