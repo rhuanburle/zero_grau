@@ -64,7 +64,9 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.my_library_books_outlined),
             title: Text('Meus Pedidos'),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(PagesRoutes.loginPage);
+            },
           ),
           ListTile(
             leading: Icon(Icons.location_on_outlined),

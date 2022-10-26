@@ -1,9 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zero_grau/models/products_model.dart';
 import 'package:zero_grau/read_firebase/read_firebase.dart';
 import 'package:zero_grau/models/app_data/app_data.dart' as appData;
 
-class AlcoholicControlle {
+import '../base/components/alert_dialog_cart.dart';
+
+class AlcoholicControlle extends GetxController {
   var readFirebase = ReadFirebase();
   FirebaseFirestore products = FirebaseFirestore.instance;
   List productsList = [];
@@ -32,4 +36,15 @@ class AlcoholicControlle {
     });
     return productsList;
   }
+
+  showDialogCart(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialogCart();
+      },
+    );
+  }
+
+  readCartItens() {}
 }

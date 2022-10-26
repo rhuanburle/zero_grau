@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:zero_grau/add_product/add_product_controller.dart';
 import 'package:zero_grau/pages/common_widgets/text_form_widget.dart';
+
+import 'add_product_controller.dart';
 
 class AddProducts extends StatelessWidget {
   @override
@@ -16,7 +17,16 @@ class AddProducts extends StatelessWidget {
           padding: const EdgeInsets.all(18.0),
           child: Column(
             children: [
-              Text('Adicione as informações do produto que deseja cadastrar'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Adicione as informações do produto que deseja cadastrar.',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormWidget(labelText: 'Nome do produto', isDense: true),
               SizedBox(height: 10),
               TextFormWidget(labelText: 'Preço', isDense: true),

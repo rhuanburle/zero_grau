@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:zero_grau/constants/constants.dart' as Constants;
-
-import '../models/app_data/app_data.dart';
+import '../../models/app_data/app_data.dart';
 
 class AddProductController extends GetxController {
   FirebaseFirestore products = FirebaseFirestore.instance;

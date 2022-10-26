@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zero_grau/models/products_model.dart';
 
 class ListProductsWidget extends StatelessWidget {
   // ListProductsWidget({Key? key}) : super(key: key);
-  var resultCount = 0;
+  RxInt resultCount = 0.obs;
   final ProductsModel product;
 
   ListProductsWidget(this.product);
@@ -51,7 +52,10 @@ class ListProductsWidget extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            resultCount--;
+                            print(resultCount);
+                          },
                           icon: const Icon(
                             Icons.do_not_disturb_on,
                             color: Colors.blue,
@@ -60,23 +64,26 @@ class ListProductsWidget extends StatelessWidget {
                         SizedBox(
                           height: 25,
                           width: 40,
-                          child: TextFormField(
-                            initialValue: ' $resultCount',
-                            textAlignVertical: TextAlignVertical.center,
-                            decoration: const InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                color: Colors.blue,
-                              )),
-                              // hintText: '0',
-                              hintStyle:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                          ),
+                          child: Obx(() {
+                            return TextFormField(
+                              initialValue: ' ${resultCount.value}',
+                              textAlignVertical: TextAlignVertical.center,
+                              decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                  color: Colors.blue,
+                                )),
+                                // hintText: '0',
+                                hintStyle: TextStyle(
+                                    color: Colors.black, fontSize: 16),
+                              ),
+                            );
+                          }),
                         ),
                         IconButton(
                           onPressed: () {
                             resultCount++;
+                            print(resultCount);
                           },
                           icon: const Icon(
                             Icons.add_circle_outlined,

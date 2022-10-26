@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:zero_grau/pages/cart/cart_page.dart';
-import '../add_product/add_product.dart';
+import 'package:zero_grau/pages/login/login_page.dart';
+import '../pages/add_product/add_product.dart';
 import '../pages/base/base_screen.dart';
 import '../pages/base/drawer_menu.dart';
 import '../pages/cadastro/profile_page.dart';
@@ -27,6 +28,10 @@ abstract class AppPages {
       name: PagesRoutes.addProducts,
       page: () => AddProducts(),
     ),
+    GetPage(
+      name: PagesRoutes.loginPage,
+      page: () => LoginPage(),
+    ),
   ];
 }
 
@@ -36,4 +41,5 @@ abstract class PagesRoutes {
   static const String drawerMenu = '/drawerMenu';
   static const String profileRoute = '/profilePage';
   static const String addProducts = '/addProducts';
+  static const String loginPage = '/loginPage';
 }

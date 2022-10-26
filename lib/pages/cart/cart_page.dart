@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:zero_grau/models/app_data/app_data.dart' as appData;
+import 'package:zero_grau/pages/cart/components_cart/alert_dialog_orders.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    showDialogOrders() {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialogOrders();
+        },
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Carrinho'),
@@ -24,16 +34,22 @@ class CartPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ListTile(
-                      title: Text(
-                        appData.cartList[index].name,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                      title: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Text(
+                          appData.cartList[index].name,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      subtitle: Text(
-                          'R\$ ' + appData.cartList[index].price.toString(),
-                          style: const TextStyle(fontSize: 14)),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Text(
+                            'R\$ ' + appData.cartList[index].price.toString(),
+                            style: const TextStyle(fontSize: 14)),
+                      ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -143,7 +159,9 @@ class CartPage extends StatelessWidget {
                   height: 50,
                   width: 180,
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialogOrders();
+                    },
                     icon: Icon(
                       Icons.check_circle,
                     ),
