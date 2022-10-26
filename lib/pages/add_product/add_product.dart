@@ -21,7 +21,10 @@ class AddProducts extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Adicione as informações do produto que deseja cadastrar.',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
                 ),
               ),
               SizedBox(

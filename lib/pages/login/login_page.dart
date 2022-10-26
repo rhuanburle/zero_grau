@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import '../../pages_routes/app_pages.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+  bool check = false;
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +102,30 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.bottomRight,
-                      child: TextButton(
-                          onPressed: () {}, child: Text('Esqueci a senha')),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              onChanged: (bool? value) {},
+                              value: check,
+                              activeColor: Colors.blue,
+                              side: BorderSide(color: Colors.blue, width: 2),
+                            ),
+                            Text(
+                              'Lembrar-me',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          alignment: Alignment.bottomRight,
+                          child: TextButton(
+                              onPressed: () {}, child: Text('Esqueci a senha')),
+                        ),
+                      ],
                     ),
                     Row(
                       children: [
@@ -130,7 +151,9 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       width: double.maxFinite,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(PagesRoutes.registrationPage);
+                        },
                         child: Text(
                           'Cadastre-se',
                           style: TextStyle(fontSize: 18, color: Colors.blue),
