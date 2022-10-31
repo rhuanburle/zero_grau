@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zero_grau/models/app_data/app_data.dart' as appData;
 import 'package:zero_grau/pages/cart/components_cart/alert_dialog_orders.dart';
 

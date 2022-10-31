@@ -12,6 +12,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Hive.initFlutter();
+  Hive.openBox('myBox');
   runApp(const MyApp());
 }
 

@@ -1,12 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zero_grau/pages/alcoholic/alcoholic_controller.dart';
-import 'package:zero_grau/pages/alcoholic/alcoholic_page.dart';
-import 'package:zero_grau/pages/others/others_page.dart';
+import 'package:zero_grau/constants/constants.dart';
+import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_widget.dart';
 import 'package:zero_grau/pages_routes/app_pages.dart';
 import 'package:zero_grau/read_firebase/read_firebase.dart';
-import '../noAlcoholic/no_alcoholic_page.dart';
+import '../pages_navigation_bottom/alcoholic/alcoholic_controller.dart';
+import '../pages_navigation_bottom/alcoholic/alcoholic_page.dart';
+import '../pages_navigation_bottom/noAlcoholic/no_alcoholic_page.dart';
+import '../pages_navigation_bottom/others/others_page.dart';
+import 'base_creen_controller.dart';
 import 'components/alert_dialog_cart.dart';
 import 'drawer_menu.dart';
 
@@ -21,7 +24,7 @@ class _BaseScreenState extends State<BaseScreen> {
   int currentIndex = 0;
   final pageController = PageController();
   var readProducts = ReadFirebase();
-  final ctrl = AlcoholicControlle();
+  final ctrl = BaseScreenController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,6 @@ class _BaseScreenState extends State<BaseScreen> {
       drawer: DrawerMenu(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          ctrl.readCartItens();
           ctrl.showDialogCart(context);
         },
         label: Text('Carrinho'),

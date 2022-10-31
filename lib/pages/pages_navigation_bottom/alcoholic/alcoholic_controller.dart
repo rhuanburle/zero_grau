@@ -1,25 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:zero_grau/models/products_model.dart';
-import 'package:zero_grau/models/app_data/app_data.dart' as appData;
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../read_firebase/read_firebase.dart';
+import 'package:zero_grau/models/products_model.dart';
+import 'package:zero_grau/read_firebase/read_firebase.dart';
+import '../../base/components/alert_dialog_cart.dart';
 
-class OthersPageController extends GetxController {
+class AlcoholicControlle extends GetxController {
   var readFirebase = ReadFirebase();
-
   FirebaseFirestore products = FirebaseFirestore.instance;
   List productsList = [];
 
-  Future readProductsOthers() async {
+  Future readProductsAlcoolic() async {
     await products
         .collection('products')
-        // .where('alcoolic', isEqualTo: false)
-        .where('category', isEqualTo: 'outros')
+        .where('alcoolic', isEqualTo: true)
         .get()
         .then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         productsList.add(
           ProductsModel(
+            id: result.id,
             name: result.get('name'),
             brand: result.get('brand'),
             unit: result.get('unit'),

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zero_grau/models/products_model.dart';
 import 'package:get/get.dart';
-import '../../read_firebase/read_firebase.dart';
 
 class NoAlcoholicController extends GetxController {
   List<String> filterListNoAlcoholic = [];
@@ -19,6 +18,7 @@ class NoAlcoholicController extends GetxController {
         if (result.get('category') != 'outros') {
           productsListnoAloolic.add(
             ProductsModel(
+              id: result.id,
               name: result.get('name'),
               brand: result.get('brand'),
               unit: result.get('unit'),

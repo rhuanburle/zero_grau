@@ -1,26 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:zero_grau/models/products_model.dart';
-import 'package:zero_grau/read_firebase/read_firebase.dart';
-import 'package:zero_grau/models/app_data/app_data.dart' as appData;
+import 'package:get/get.dart';
 
-import '../base/components/alert_dialog_cart.dart';
+import '../../../read_firebase/read_firebase.dart';
 
-class AlcoholicControlle extends GetxController {
+class OthersPageController extends GetxController {
   var readFirebase = ReadFirebase();
+
   FirebaseFirestore products = FirebaseFirestore.instance;
   List productsList = [];
 
-  Future readProductsAlcoolic() async {
+  Future readProductsOthers() async {
     await products
         .collection('products')
-        .where('alcoolic', isEqualTo: true)
+        // .where('alcoolic', isEqualTo: false)
+        .where('category', isEqualTo: 'outros')
         .get()
         .then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         productsList.add(
           ProductsModel(
+            id: result.id,
             name: result.get('name'),
             brand: result.get('brand'),
             unit: result.get('unit'),
@@ -36,15 +36,4 @@ class AlcoholicControlle extends GetxController {
     });
     return productsList;
   }
-
-  showDialogCart(context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialogCart();
-      },
-    );
-  }
-
-  readCartItens() {}
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zero_grau/models/app_data/app_data.dart';
-import '../common_widgets/filter_home_page.dart';
-import '../common_widgets/list_products_widget.dart';
-import '../common_widgets/user_info.dart';
+import '../../common_widgets/filter_home_page.dart';
+import '../common_widgets_navigation_page/list_products_widget.dart';
+import '../../common_widgets/user_info.dart';
 import 'others_page_controller.dart';
 
 class OthersPage extends StatelessWidget {

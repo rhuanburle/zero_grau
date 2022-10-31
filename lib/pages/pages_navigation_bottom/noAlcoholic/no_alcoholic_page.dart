@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_widget.dart';
 import 'package:zero_grau/pages/common_widgets/user_info.dart';
-import '../../models/app_data/app_data.dart';
-import '../common_widgets/list_products_widget.dart';
-import 'alcoholic_controller.dart';
-import '../common_widgets/filter_home_page.dart';
+import '../../../models/app_data/app_data.dart';
+import '../../common_widgets/filter_home_page.dart';
+import 'noAlcoholic_controller.dart';
 
-class AlcoholicPage extends StatelessWidget {
-  AlcoholicPage({Key? key}) : super(key: key);
-  var filterList = filterListAlcoholic;
-  var ctrl = AlcoholicControlle();
+class NoAlcoholicPage extends StatelessWidget {
+  NoAlcoholicPage({Key? key}) : super(key: key);
+  var filterList = filterListNoAlcoholic;
+  var ctrl = NoAlcoholicController();
   var resultCount = 0;
 
   @override
@@ -38,7 +38,7 @@ class AlcoholicPage extends StatelessWidget {
         ),
         Expanded(
           child: FutureBuilder(
-              future: ctrl.readProductsAlcoolic(),
+              future: ctrl.readProductsNoAlcoolic(),
               builder: (context, snapshot) {
                 return snapshot.hasData
                     ? ListView.builder(

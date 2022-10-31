@@ -1,16 +1,19 @@
+import 'package:get/get.dart';
 import 'package:zero_grau/models/products_model.dart';
 
 class CartModel {
-  int id;
+  String id;
   String name;
   double price;
-  int quantity;
+  RxInt quantity;
+  double totalPrice;
 
   CartModel({
     required this.id,
     required this.name,
     required this.price,
     required this.quantity,
+    required this.totalPrice,
   });
 
   factory CartModel.fromJson(Map<String, dynamic> json) {
@@ -19,6 +22,7 @@ class CartModel {
       name: json['name'],
       price: json['price'],
       quantity: json['quantity'],
+      totalPrice: json['totalPrice'],
     );
   }
 
@@ -28,6 +32,7 @@ class CartModel {
       'name': name,
       'price': price,
       'quantity': quantity,
+      'totalPrice': totalPrice,
     };
   }
 }

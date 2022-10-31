@@ -1,24 +1,28 @@
+import 'package:get/get.dart';
 import 'package:zero_grau/models/cart_model.dart';
 import 'package:zero_grau/models/products_model.dart';
 
 List<CartModel> cartList = [
   CartModel(
-    id: 1,
+    id: '1',
     name: 'Heineken',
     price: 6.99,
-    quantity: 6,
+    quantity: 6.obs,
+    totalPrice: 41.94,
   ),
   CartModel(
-    id: 1,
+    id: '1',
     name: 'Carvão Vegetal',
     price: 11.99,
-    quantity: 1,
+    quantity: 1.obs,
+    totalPrice: 11.99,
   ),
   CartModel(
-    id: 1,
+    id: '1',
     name: 'Coca-Cola',
     price: 7.99,
-    quantity: 1,
+    quantity: 1.obs,
+    totalPrice: 7.99,
   ),
 ];
 
