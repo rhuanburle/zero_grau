@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:zero_grau/read_firebase/read_firebase.dart';
+import 'package:zero_grau/utils/utils_services.dart';
 import '../../pages_routes/app_pages.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,6 +10,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ReadFirebase readFirebase = Get.put(ReadFirebase());
     return Material(
       child: Column(children: [
         Expanded(
@@ -88,7 +90,8 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       width: double.maxFinite,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          await readFirebase.readProductsFireBase();
                           Get.toNamed(PagesRoutes.baseRoute);
                         },
                         child: Text('Login', style: TextStyle(fontSize: 18)),

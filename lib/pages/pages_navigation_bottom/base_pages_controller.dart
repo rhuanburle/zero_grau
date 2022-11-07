@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/products_model.dart';
-import '../utils/hive_config.dart';
+import 'package:get/get.dart';
+import 'package:zero_grau/utils/hive_config.dart';
 
-class ReadFirebase {
-  FirebaseFirestore products = FirebaseFirestore.instance;
+import '../../models/products_model.dart';
+
+class BasePagesController extends GetxController {
   List productsList = [];
+  FirebaseFirestore products = FirebaseFirestore.instance;
   HiveConfig hiveConfig = HiveConfig();
 
   List productAlcoolicList = [];
-  List productNonAlcoolicList = [];
+  List productNoAlcoolicList = [];
   List productOthersList = [];
 
   readProductsFireBase() async {
@@ -47,13 +49,13 @@ class ReadFirebase {
           productsList[i].category == 'outros') {
         productOthersList.add(productsList[i]);
       } else {
-        productNonAlcoolicList.add(productsList[i]);
+        productNoAlcoolicList.add(productsList[i]);
       }
     }
     await hiveConfig.saveData(
         key: 'productAlcoolic', data: productAlcoolicList);
     await hiveConfig.saveData(
-        key: 'productNoAlcoolic', data: productNonAlcoolicList);
+        key: 'productNoAlcoolic', data: productNoAlcoolicList);
     await hiveConfig.saveData(key: 'productOthers', data: productOthersList);
   }
 

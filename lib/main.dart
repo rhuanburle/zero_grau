@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zero_grau/pages_routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:zero_grau/read_firebase/read_firebase.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -12,7 +13,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Hive.initFlutter();
-  Hive.openBox('myBox');
   runApp(const MyApp());
 }
 

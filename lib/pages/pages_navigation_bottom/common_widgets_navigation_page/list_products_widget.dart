@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 import 'package:zero_grau/models/products_model.dart';
 import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 
+import '../../../utils/utils_services.dart';
+
 class ListProductsWidget extends StatelessWidget {
   final ProductsModel product;
-  ListProductsController ctrl = ListProductsController();
+  UtilServices utilServices = UtilServices();
+  ListProductsController ctrl = Get.put(ListProductsController());
 
   ListProductsWidget(this.product);
 
@@ -54,7 +57,7 @@ class ListProductsWidget extends StatelessWidget {
                           const SizedBox(width: 10),
                           IconButton(
                             onPressed: () {
-                              ctrl.decreaseProductCount();
+                              ctrl.decreaseProductCount(product.id);
                             },
                             icon: const Icon(
                               Icons.do_not_disturb_on,
@@ -65,30 +68,29 @@ class ListProductsWidget extends StatelessWidget {
                             height: 30,
                             width: 50,
                             child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                    color: Colors.grey[300]!, width: 2),
-                              ),
-                              child: Text(
-                                ctrl.resultCount.toString(),
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade700),
-                              ),
-                            ),
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: Colors.grey[300]!, width: 2),
+                                ),
+                                child: Text(
+                                  ctrl.resultCount.toString(),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade700),
+                                )),
                           ),
                           IconButton(
                             onPressed: () {
-                              ctrl.addProductCount();
-                              ctrl.addProductCart(
-                                  product.id,
-                                  product.name,
-                                  product.description,
-                                  product.price,
-                                  ctrl.resultCount);
+                              ctrl.addProductCount(product.id);
+                              // ctrl.addProductCart(
+                              //     product.id,
+                              //     product.name,
+                              //     product.description,
+                              //     product.price,
+                              //     ctrl.resultCount);
                             },
                             icon: const Icon(
                               Icons.add_circle_outlined,
