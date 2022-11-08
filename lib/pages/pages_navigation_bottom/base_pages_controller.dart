@@ -67,6 +67,5 @@ class BasePagesController extends GetxController {
       String name = result.get("name");
       listNames.add(name);
     });
-    print(listNames);
   }
 }

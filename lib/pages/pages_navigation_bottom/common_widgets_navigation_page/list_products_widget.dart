@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zero_grau/models/app_data/app_data.dart';
 import 'package:zero_grau/models/products_model.dart';
 import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 
@@ -57,7 +58,7 @@ class ListProductsWidget extends StatelessWidget {
                           const SizedBox(width: 10),
                           IconButton(
                             onPressed: () {
-                              ctrl.decreaseProductCount(product.id);
+                              ctrl.decreaseProductCart(product.id);
                             },
                             icon: const Icon(
                               Icons.do_not_disturb_on,
@@ -75,7 +76,7 @@ class ListProductsWidget extends StatelessWidget {
                                       color: Colors.grey[300]!, width: 2),
                                 ),
                                 child: Text(
-                                  ctrl.resultCount.toString(),
+                                  ctrl.counter.toString(),
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -84,13 +85,7 @@ class ListProductsWidget extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {
-                              ctrl.addProductCount(product.id);
-                              // ctrl.addProductCart(
-                              //     product.id,
-                              //     product.name,
-                              //     product.description,
-                              //     product.price,
-                              //     ctrl.resultCount);
+                              ctrl.addProductCart(product);
                             },
                             icon: const Icon(
                               Icons.add_circle_outlined,
@@ -125,6 +120,5 @@ class ListProductsWidget extends StatelessWidget {
         ),
       );
     });
-    ;
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/pages_routes/app_pages.dart';
-import 'package:zero_grau/read_firebase/read_firebase.dart';
 import '../pages_navigation_bottom/base_pages.dart';
+import '../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 import 'base_creen_controller.dart';
 import 'drawer_menu.dart';
 
@@ -17,6 +17,7 @@ class _BaseScreenState extends State<BaseScreen> {
   int currentIndex = 0;
   final pageController = PageController();
   final ctrl = BaseScreenController();
+  final listProductsCtrl = Get.put(ListProductsController());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,12 @@ class _BaseScreenState extends State<BaseScreen> {
       drawer: DrawerMenu(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          ctrl.showDialogCart(context);
+          listProductsCtrl.cartList.isEmpty
+              ? Get.snackbar(
+                  'Carrinho vazio', 'Adicione um produto ao carrinho',
+                  snackPosition: SnackPosition.BOTTOM)
+              : ctrl.showDialogCart(context);
+          ;
         },
         label: Text('Carrinho'),
         icon: Icon(Icons.add_shopping_cart_outlined),

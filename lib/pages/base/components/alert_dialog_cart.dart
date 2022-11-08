@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../pages_routes/app_pages.dart';
+import '../../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 
 class AlertDialogCart extends StatelessWidget {
-  const AlertDialogCart({Key? key}) : super(key: key);
+  AlertDialogCart({Key? key}) : super(key: key);
+  final listProductsCtrl = Get.put(ListProductsController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +21,17 @@ class AlertDialogCart extends StatelessWidget {
             SizedBox(
               width: 300,
               height: 200,
-              child: ListView(
-                children: [
-                  ListTile(
-                    title: const Text('Cerveja'),
-                    subtitle: const Text('R\$ 5,00'),
-                    trailing: const Text('1'),
-                  ),
-                  ListTile(
-                    title: const Text('Coca-Cola 2L'),
-                    subtitle: const Text('R\$ 16,00'),
-                    trailing: const Text('2'),
-                  ),
-                  ListTile(
-                    title: const Text('Carvão'),
-                    subtitle: const Text('R\$ 12,00'),
-                    trailing: const Text('1'),
-                  ),
-                ],
+              child: ListView.builder(
+                itemCount: listProductsCtrl.cartList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(listProductsCtrl.cartList[index].name),
+                    subtitle: Text(
+                        'R\$ ${listProductsCtrl.cartList[index].totalPrice.toStringAsFixed(2)}'),
+                    trailing: Text(
+                        'Quantidade: ${listProductsCtrl.cartList[index].quantity}'),
+                  );
+                },
               ),
             ),
             SizedBox(

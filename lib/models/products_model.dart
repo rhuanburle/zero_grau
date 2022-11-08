@@ -6,7 +6,7 @@ class ProductsModel {
   bool alcoolic;
   String description;
   String image;
-  String price;
+  double price;
   String size;
   String id;
 
