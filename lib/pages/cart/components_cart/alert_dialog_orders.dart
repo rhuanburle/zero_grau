@@ -8,16 +8,6 @@ class AlertDialogOrders extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  calcTotalPriceCart() {
-    double total = 0;
-    if (ctrl.cartList.isNotEmpty) {
-      for (var i = 0; i < ctrl.cartList.length; i++) {
-        total += ctrl.cartList[i].totalPrice;
-      }
-    }
-    return total;
-  }
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -26,7 +16,7 @@ class AlertDialogOrders extends StatelessWidget {
       ),
       title: const Text('Finalizar Pedido?'),
       content: Text(
-        'Valor Total:\ R\$ ${calcTotalPriceCart().toStringAsFixed(2)}',
+        'Valor Total:\ R\$ ${ctrl.totalPriceCart.toStringAsFixed(2)}',
         style: TextStyle(fontSize: 18),
       ),
       actions: [

@@ -58,7 +58,7 @@ class ListProductsWidget extends StatelessWidget {
                           const SizedBox(width: 10),
                           IconButton(
                             onPressed: () {
-                              ctrl.decreaseProductCart(product.id);
+                              ctrl.decreaseProductCart(product);
                             },
                             icon: const Icon(
                               Icons.do_not_disturb_on,
@@ -76,7 +76,15 @@ class ListProductsWidget extends StatelessWidget {
                                       color: Colors.grey[300]!, width: 2),
                                 ),
                                 child: Text(
-                                  ctrl.counter.toString(),
+                                  ctrl.cartList.any(
+                                          (element) => element.id == product.id)
+                                      ? ctrl.cartList
+                                          .firstWhere((element) =>
+                                              element.id == product.id)
+                                          .quantity
+                                          .toString()
+                                      : 0.obs.toString(),
+                                  // ctrl.counter.toString(),
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

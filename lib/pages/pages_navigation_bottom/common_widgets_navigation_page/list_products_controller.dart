@@ -7,7 +7,8 @@ class ListProductsController extends GetxController {
   RxInt counter = 0.obs;
   UtilServices utilServices = UtilServices();
   BaseScreenController ctrl = BaseScreenController();
-  List<CartModel> cartList = [];
+  RxList cartList = [].obs;
+  RxDouble totalPriceCart = 0.0.obs;
 
   void addProductCart(product) {
     if (cartList.isEmpty) {
@@ -35,15 +36,23 @@ class ListProductsController extends GetxController {
         totalPrice: totalPrice(product.price, 1.obs),
       ));
     }
-    ;
+    calcTotalPriceCart(product.price);
   }
 
-  decreaseProductCart(String id) {
-    cartList.any((element) => element.id == id)
+  calcTotalPriceCart(price) async {
+    if (cartList.isNotEmpty) {
+      totalPriceCart.value += price;
+      print(totalPriceCart.value);
+    }
+  }
+
+  decreaseProductCart(product) {
+    cartList.any((element) => element.id == product.id)
         ? cartList.forEach((element) {
-            if (element.id == id) {
+            if (element.id == product.id) {
               element.quantity--;
               element.totalPrice = totalPrice(element.price, element.quantity);
+              totalPriceCart.value -= product.price;
             }
             if (element.quantity == 0) {
               cartList.remove(element);

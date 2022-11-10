@@ -27,102 +27,101 @@ class CartPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-              itemCount: listProductsCtrl.cartList.length,
-              itemBuilder: (_, index) {
-                return Card(
-                    color: Colors.grey[100],
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 20),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    child: ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Text(
+            child: Obx(() {
+              return ListView.builder(
+                itemCount: listProductsCtrl.cartList.length,
+                itemBuilder: (_, index) {
+                  return Card(
+                      color: Colors.grey[100],
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: ListTile(
+                        title: Text(
                           listProductsCtrl.cartList[index].name,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      subtitle: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Text(
-                            'R\$ ' +
-                                listProductsCtrl.cartList[index].price
-                                    .toString(),
-                            style: const TextStyle(fontSize: 14)),
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text('R\$  ', style: TextStyle(fontSize: 16)),
-                          SizedBox(
-                            width: 70,
-                            height: 35,
-                            child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      color: Colors.grey[300]!, width: 2),
-                                ),
-                                child: Text(
-                                  listProductsCtrl.cartList[index].totalPrice
+                        subtitle: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                              'R\$ ' +
+                                  listProductsCtrl.cartList[index].price
                                       .toString(),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey.shade700),
-                                )),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              listProductsCtrl.decreaseProductCart(
-                                  listProductsCtrl.cartList[index].id);
-                            },
-                            icon: const Icon(
-                              Icons.do_not_disturb_on,
-                              color: Colors.blue,
+                              style: const TextStyle(fontSize: 14)),
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text('R\$  ', style: TextStyle(fontSize: 16)),
+                            SizedBox(
+                              width: 70,
+                              height: 35,
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                        color: Colors.grey[300]!, width: 2),
+                                  ),
+                                  child: Text(
+                                    listProductsCtrl.cartList[index].totalPrice
+                                        .toString(),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey.shade700),
+                                  )),
                             ),
-                          ),
-                          SizedBox(
-                            width: 35,
-                            height: 30,
-                            child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      color: Colors.grey[300]!, width: 2),
-                                ),
-                                child: Text(
-                                  listProductsCtrl.cartList[index].quantity
-                                      .toString(),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey.shade700),
-                                )),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              listProductsCtrl.addProductCart(
-                                  listProductsCtrl.cartList[index]);
-                            },
-                            icon: const Icon(
-                              Icons.add_circle_outlined,
-                              color: Colors.blue,
+                            IconButton(
+                              onPressed: () {
+                                listProductsCtrl.decreaseProductCart(
+                                    listProductsCtrl.cartList[index]);
+                              },
+                              icon: const Icon(
+                                Icons.do_not_disturb_on,
+                                color: Colors.blue,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ));
-              },
-            ),
+                            SizedBox(
+                              width: 35,
+                              height: 30,
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                        color: Colors.grey[300]!, width: 2),
+                                  ),
+                                  child: Text(
+                                    listProductsCtrl.cartList[index].quantity
+                                        .toString(),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey.shade700),
+                                  )),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                listProductsCtrl.addProductCart(
+                                    listProductsCtrl.cartList[index]);
+                              },
+                              icon: const Icon(
+                                Icons.add_circle_outlined,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ));
+                },
+              );
+            }),
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
@@ -144,11 +143,14 @@ class CartPage extends StatelessWidget {
                         color: Colors.blue,
                         size: 30,
                       ),
-                      Text('R\$ 48,00',
-                          style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue)),
+                      Obx(() {
+                        return Text(
+                            "R\$ ${listProductsCtrl.totalPriceCart.toStringAsFixed(2)}",
+                            style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue));
+                      }),
                     ],
                   ),
                 ),

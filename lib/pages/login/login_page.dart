@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/read_firebase/read_firebase.dart';
-import 'package:zero_grau/utils/utils_services.dart';
 import '../../pages_routes/app_pages.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
-  bool check = false;
+  RxBool check = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -111,12 +110,16 @@ class LoginPage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Checkbox(
-                              onChanged: (bool? value) {},
-                              value: check,
-                              activeColor: Colors.blue,
-                              side: BorderSide(color: Colors.blue, width: 2),
-                            ),
+                            Obx(() {
+                              return Checkbox(
+                                value: check.value,
+                                onChanged: (bool? value) {
+                                  check = value!.obs;
+                                },
+                                activeColor: Colors.blue,
+                                side: BorderSide(color: Colors.blue, width: 2),
+                              );
+                            }),
                             Text(
                               'Lembrar-me',
                               style: TextStyle(color: Colors.blue),
