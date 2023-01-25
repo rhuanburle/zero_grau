@@ -1,7 +1,3 @@
-import 'package:get/get.dart';
-import 'package:zero_grau/models/cart_model.dart';
-import 'package:zero_grau/models/products_model.dart';
-
 final filterListAlcoholic = [
   'Brahma',
   'Heineken',

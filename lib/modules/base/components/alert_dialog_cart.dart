@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../pages_routes/app_pages.dart';
+import '../../../routes/app_pages.dart';
 import '../../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 
 class AlertDialogCart extends StatelessWidget {

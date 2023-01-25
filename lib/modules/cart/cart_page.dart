@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zero_grau/models/app_data/app_data.dart' as appData;
-import 'package:zero_grau/pages/cart/components_cart/alert_dialog_orders.dart';
-
 import '../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
+import 'components_cart/alert_dialog_orders.dart';
 
 class CartPage extends StatelessWidget {
   CartPage({Key? key}) : super(key: key);

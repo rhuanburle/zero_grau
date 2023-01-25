@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:zero_grau/pages_routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:zero_grau/read_firebase/read_firebase.dart';
+import 'package:zero_grau/routes/app_pages.dart';
 import 'firebase_options.dart';
 
 void main() async {

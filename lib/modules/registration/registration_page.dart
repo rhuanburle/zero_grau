@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zero_grau/pages/login/customTextField.dart';
+import '../login/customTextField.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({Key? key}) : super(key: key);

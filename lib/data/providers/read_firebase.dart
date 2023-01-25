@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../utils/hive_config.dart';
 import '../models/products_model.dart';
-import '../utils/hive_config.dart';
 
 class ReadFirebase {
   FirebaseFirestore products = FirebaseFirestore.instance;

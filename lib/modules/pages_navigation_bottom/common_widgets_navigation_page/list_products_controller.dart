@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:zero_grau/models/cart_model.dart';
-import 'package:zero_grau/pages/base/base_creen_controller.dart';
 import 'package:zero_grau/utils/utils_services.dart';
+import '../../../data/models/cart_model.dart';
+import '../../base/base_creen_controller.dart';
 
 class ListProductsController extends GetxController {
   RxInt counter = 0.obs;

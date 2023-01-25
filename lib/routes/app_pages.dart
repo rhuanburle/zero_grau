@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:zero_grau/pages/cart/cart_page.dart';
-import 'package:zero_grau/pages/login/login_page.dart';
-import '../pages/add_product/add_product.dart';
-import '../pages/base/base_screen.dart';
-import '../pages/base/drawer_menu.dart';
-import '../pages/cadastro/profile_page.dart';
-import '../pages/registration/registration_page.dart';
+import '../modules/add_product/add_product.dart';
+import '../modules/base/base_screen.dart';
+import '../modules/base/drawer_menu.dart';
+import '../modules/cadastro/profile_page.dart';
+import '../modules/cart/cart_page.dart';
+import '../modules/login/login_page.dart';
+import '../modules/registration/registration_page.dart';
 
 abstract class AppPages {
   static final pages = <GetPage>[

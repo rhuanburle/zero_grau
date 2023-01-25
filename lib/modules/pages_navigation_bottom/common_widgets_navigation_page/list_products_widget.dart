@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zero_grau/models/app_data/app_data.dart';
-import 'package:zero_grau/models/products_model.dart';
-import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
-
+import '../../../data/models/products_model.dart';
 import '../../../utils/utils_services.dart';
+import 'list_products_controller.dart';
 
 class ListProductsWidget extends StatelessWidget {
   final ProductsModel product;

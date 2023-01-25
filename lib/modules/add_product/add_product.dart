@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:zero_grau/pages/common_widgets/text_form_widget.dart';
-
+import '../common_widgets/text_form_widget.dart';
 import 'add_product_controller.dart';
 
 class AddProducts extends StatelessWidget {

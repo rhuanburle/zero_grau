@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zero_grau/pages/pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
+import '../../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 
 class AlertDialogOrders extends StatelessWidget {
   final ctrl = Get.put(ListProductsController());

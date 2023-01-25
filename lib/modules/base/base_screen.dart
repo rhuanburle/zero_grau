@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zero_grau/pages_routes/app_pages.dart';
+import '../../routes/app_pages.dart';
 import '../pages_navigation_bottom/base_pages.dart';
 import '../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 import 'base_creen_controller.dart';

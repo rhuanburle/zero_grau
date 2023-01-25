@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/utils/hive_config.dart';
+import '../../data/models/products_model.dart';
 
-import '../../models/products_model.dart';
 
 class BasePagesController extends GetxController {
   List productsList = [];
