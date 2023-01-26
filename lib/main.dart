@@ -5,14 +5,16 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:zero_grau/routes/app_pages.dart';
 import 'package:zero_grau/routes/pages_routes.dart';
+import 'data/hive/registerAdapter.dart';
 import 'firebase_options.dart';
 
-void main() async {
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Hive.initFlutter();
+  Register.adapter();
   runApp(const MyApp());
 }
 

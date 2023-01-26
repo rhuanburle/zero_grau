@@ -1,11 +1,14 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class HiveConfig {
+class HiveManager {
   saveData({required String key, required data}) async {
     final box = await Hive.openBox('myBox');
-    box.put(key, data);
-  }
+    if (box.isOpen)
+      print("🐝 $key: HIVE SAVE  🐝");
+      box.put(key, data);
+    }
+
 
   getData({required String key}) async {
     final box = await Hive.openBox('myBox');
@@ -14,7 +17,10 @@ class HiveConfig {
 
   deleteData({required String key}) async {
     final box = await Hive.openBox('myBox');
-    box.delete(key);
+    if (box.isOpen) {
+      print("🐝 $key: HIVE DELETE  🐝");
+      box.delete(key);
+    }
   }
 
   deleteAllData() async {

@@ -7,7 +7,7 @@ import '../../data/models/products_model.dart';
 class BasePagesController extends GetxController {
   List productsList = [];
   FirebaseFirestore products = FirebaseFirestore.instance;
-  HiveConfig hiveConfig = HiveConfig();
+  HiveManager hiveConfig = HiveManager();
 
   List productAlcoolicList = [];
   List productNoAlcoolicList = [];

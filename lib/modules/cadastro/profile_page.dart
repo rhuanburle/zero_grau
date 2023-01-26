@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/modules/cadastro/profile_controller.dart';
 import 'package:zero_grau/modules/cadastro/widgets/text_form_profile.dart';
-import 'package:zero_grau/utils/common_widgets/text_form_widget.dart';
 import '../../utils/common_widgets/customTextField.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -28,46 +27,42 @@ class ProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              CustomTextField(labelText: 'Email', prefixIcon: Icon(Icons.email), textEditingController: ctrl.emailController,),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-              ),
               CustomTextField(labelText: 'Telefone', prefixIcon: Icon(Icons.phone), textEditingController: ctrl.phoneController,),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Cep', textEditingController: ctrl.zipCodeController, imputFormatters: ctrl.cepMask ,onChanged: (value) {
+              TextFormProfile(labelText: 'Cep', isDense: true, textEditingController: ctrl.zipCodeController, imputFormatters: ctrl.cepMask ,onChanged: (value) {
                 ctrl.zipCodeController.text.length == 9
                     ? ctrl.searchCep()
                     : null;              },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Rua', textEditingController: ctrl.streetAddressController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Rua', isDense: true, textEditingController: ctrl.streetAddressController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'numero', textEditingController: ctrl.numberController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'numero',isDense: true, textEditingController: ctrl.numberController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Complemento', textEditingController: ctrl.complementController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Complemento',isDense: true, textEditingController: ctrl.complementController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Bairro', textEditingController: ctrl.neighborhoodController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Bairro',isDense: true, textEditingController: ctrl.neighborhoodController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Cidade', textEditingController: ctrl.cityController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Cidade', isDense: true, textEditingController: ctrl.cityController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Estado', textEditingController: ctrl.stateController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Estado',isDense: true, textEditingController: ctrl.stateController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              TextFormProfile(labelText: 'Ponto de referencia', textEditingController: ctrl.referencePointController, onChanged: (value) {  },),
+              TextFormProfile(labelText: 'Ponto de referencia',isDense: true, textEditingController: ctrl.referencePointController, onChanged: (value) {  },),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 child: SizedBox(

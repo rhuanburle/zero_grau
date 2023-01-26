@@ -5,7 +5,7 @@ import '../../../utils/hive_config.dart';
 class AuthService with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Stream<User?> get authStateChanges => _auth.authStateChanges();
-  final hive = HiveConfig();
+  final hive = HiveManager();
 
   String? token;
   String? userId;
