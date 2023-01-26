@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../routes/app_pages.dart';
+
+import '../../routes/pages_routes.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);

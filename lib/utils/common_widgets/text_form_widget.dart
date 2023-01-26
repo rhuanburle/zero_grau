@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 class TextFormWidget extends StatefulWidget {
   final String? labelText;
   final bool? isDense;
+  final TextEditingController textEditingController;
 
   const TextFormWidget({
     Key? key,
     this.labelText,
-    this.isDense = false,
+    this.isDense = false, required this.textEditingController,
   }) : super(key: key);
 
   @override
@@ -18,7 +19,7 @@ class _TextFormWidgetState extends State<TextFormWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: TextEditingController(),
+      controller: widget.textEditingController,
       decoration: InputDecoration(
         labelText: widget.labelText,
         isDense: widget.isDense,

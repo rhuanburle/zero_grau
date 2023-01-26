@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import '../login/customTextField.dart';
+import 'package:get/get.dart';
+import 'package:zero_grau/modules/registration/registration_controller.dart';
+import '../../utils/common_widgets/customTextField.dart';
 
 class RegistrationPage extends StatelessWidget {
-  const RegistrationPage({Key? key}) : super(key: key);
+  RegistrationPage({Key? key}) : super(key: key);
+  final ctrl = Get.put(RegistrationController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,42 +22,30 @@ class RegistrationPage extends StatelessWidget {
               CustomTextField(
                 prefixIcon: Icon(Icons.email),
                 labelText: 'Email',
+                textEditingController: ctrl.emailController,
+
               ),
               SizedBox(height: 20),
               CustomTextField(
-                prefixIcon: Icon(Icons.person),
-                labelText: 'Nome',
-              ),
-              SizedBox(height: 20),
-              CustomTextField(
-                prefixIcon: Icon(Icons.phone),
-                labelText: 'Celular',
-              ),
-              SizedBox(height: 20),
-              CustomTextField(
-                prefixIcon: Icon(Icons.file_copy),
-                labelText: 'CPF',
-              ),
-              SizedBox(height: 20),
-              CustomTextField(
-                prefixIcon: Icon(Icons.email),
-                labelText: 'Email',
-              ),
-              SizedBox(height: 20),
-              CustomTextField(
-                prefixIcon: Icon(Icons.add_road),
-                labelText: 'Endereço',
-              ),
-              SizedBox(height: 20),
-              CustomTextField(
+                obscureText: true,
                 prefixIcon: Icon(Icons.lock),
                 labelText: 'Senha',
+                textEditingController: ctrl.passwordController,
+              ),
+              SizedBox(height: 20),
+              CustomTextField(
+                obscureText: true,
+                prefixIcon: Icon(Icons.lock),
+                labelText: 'Repita a senha',
+                textEditingController: ctrl.confirmPasswordController,
               ),
               SizedBox(height: 20),
               SizedBox(
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ctrl.register(context);
+                  },
                   child: Text('Cadastrar', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,

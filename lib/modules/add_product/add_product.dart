@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../common_widgets/text_form_widget.dart';
+import '../../utils/common_widgets/text_form_widget.dart';
 import 'add_product_controller.dart';
 
 class AddProducts extends StatelessWidget {
@@ -28,20 +28,20 @@ class AddProducts extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextFormWidget(labelText: 'Nome do produto', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'Preço', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'imagem', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'Descrição', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'Categoria', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'Marca', isDense: true),
-              SizedBox(height: 10),
-              TextFormWidget(labelText: 'Unidade', isDense: true),
-              SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Nome do produto', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Preço', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'imagem', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Descrição', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Categoria', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Marca', isDense: true),
+              // SizedBox(height: 10),
+              // TextFormWidget(labelText: 'Unidade', isDense: true),
+              // SizedBox(height: 10),
               Row(
                 children: [
                   Padding(

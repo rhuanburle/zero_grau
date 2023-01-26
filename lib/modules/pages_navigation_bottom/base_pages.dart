@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../data/models/app_data/app_data.dart';
-import '../common_widgets/filter_home_page.dart';
-import '../common_widgets/user_info.dart';
+import '../../utils/common_widgets/filter_home_page.dart';
+import '../../utils/common_widgets/user_info.dart';
 import 'base_pages_controller.dart';
 import 'common_widgets_navigation_page/list_products_widget.dart';
 

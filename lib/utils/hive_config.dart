@@ -11,4 +11,19 @@ class HiveConfig {
     final box = await Hive.openBox('myBox');
     return box.get(key);
   }
+
+  deleteData({required String key}) async {
+    final box = await Hive.openBox('myBox');
+    box.delete(key);
+  }
+
+  deleteAllData() async {
+    final box = await Hive.openBox('myBox');
+    box.deleteFromDisk();
+  }
+
+  getAllData() async {
+    final box = await Hive.openBox('myBox');
+    return box.toMap();
+  }
 }

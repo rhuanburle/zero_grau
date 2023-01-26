@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:zero_grau/routes/app_pages.dart';
+import 'package:zero_grau/routes/pages_routes.dart';
 import 'firebase_options.dart';
 
 void main() async {

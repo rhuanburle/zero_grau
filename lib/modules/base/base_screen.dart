@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../routes/app_pages.dart';
+import '../../routes/pages_routes.dart';
 import '../pages_navigation_bottom/base_pages.dart';
 import '../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
-import 'base_creen_controller.dart';
+import 'base_screen_controller.dart';
 import 'drawer_menu.dart';
 
 class BaseScreen extends StatefulWidget {

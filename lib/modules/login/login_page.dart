@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../data/providers/read_firebase.dart';
-import '../../routes/app_pages.dart';
+import '../../routes/pages_routes.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
