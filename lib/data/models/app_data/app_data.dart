@@ -24,7 +24,7 @@ final filterListOthers = [
 List sendItens = [
   {
     'name': 'Heineken',
-    'price': '6.99',
+    'price': 6.99,
     'image': 'assets/images/heineken_350.png',
     'description': 'Cerveja Heineken 350ml',
     'category': 'Cerveja',
@@ -35,7 +35,7 @@ List sendItens = [
   },
   {
     'name': 'Einsenbahn',
-    'price': '5.99',
+    'price': 5.99,
     'image': 'assets/images/eisenbahn_350.png',
     'description': 'Cerveja Einsenbahn 350ml',
     'category': 'Cerveja',
@@ -46,7 +46,7 @@ List sendItens = [
   },
   {
     'name': 'Bohemia',
-    'price': '4.99',
+    'price': 4.99,
     'image': 'assets/images/bohemia_350.jpg',
     'description': 'Cerveja Bohemia 350ml',
     'category': 'Cerveja',
@@ -57,7 +57,7 @@ List sendItens = [
   },
   {
     'name': 'Stella',
-    'price': '5.99',
+    'price': 5.99,
     'image': 'assets/images/stella_350.jpg',
     'description': 'Cerveja Stella 350ml',
     'category': 'Cerveja',
@@ -68,7 +68,7 @@ List sendItens = [
   },
   {
     'name': 'Aguá mineral Minalba',
-    'price': '1,99',
+    'price': 1.99,
     'image': 'assets/images/minalba_500ml.jpg',
     'description': 'Agua mineral Minalba 500ml',
     'category': 'Agua',
@@ -79,7 +79,7 @@ List sendItens = [
   },
   {
     'name': 'Coca-Cola',
-    'price': '7,99',
+    'price': 7.99,
     'image': 'assets/images/cocaCola_2l.jpeg',
     'description': 'Cola-Cola 2L',
     'category': 'Refrigerante',
@@ -90,7 +90,7 @@ List sendItens = [
   },
   {
     'name': 'Coca-Cola',
-    'price': '2.99',
+    'price': 2.99,
     'image': 'assets/images/cocaCola_350ml.png',
     'description': 'Coca-Cola Lata 350ml',
     'category': 'Refrigerante',
@@ -101,7 +101,7 @@ List sendItens = [
   },
   {
     'name': 'RedBull',
-    'price': '8.99',
+    'price': 8.99,
     'image': 'assets/images/redBull_250ml.jpg',
     'description': 'Red Bull 250ml',
     'category': 'Energetico',
@@ -112,7 +112,7 @@ List sendItens = [
   },
   {
     'name': 'Carvão Vegetal',
-    'price': '11,99',
+    'price': 11.99,
     'image': 'assets/images/carvao_6kg.jpeg',
     'description': 'Carvão Vegetal 6kg',
     'category': 'carvao',
@@ -123,7 +123,7 @@ List sendItens = [
   },
   {
     'name': 'Gelo em Escama',
-    'price': '5,99',
+    'price': 5.99,
     'image': 'assets/images/gelo_escama.png',
     'description': 'Saco de Gelo em escama 10kg',
     'category': 'Gelo',
@@ -134,7 +134,7 @@ List sendItens = [
   },
   {
     'name': 'Gelo em Cubo',
-    'price': '5,99',
+    'price': 5.99,
     'image': 'assets/images/gelo_cubo.png',
     'description': 'Saco de Gelo em cubo 5kg',
     'category': 'Gelo',
@@ -145,7 +145,7 @@ List sendItens = [
   },
   {
     'name': 'Sal Grosso',
-    'price': '2,00',
+    'price': 2.00,
     'image': 'assets/images/sal_grosso.png',
     'description': 'Sal Aji-Sal grosso 1kg',
     'category': 'outros',

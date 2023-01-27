@@ -28,6 +28,7 @@ class LoginController extends GetxController {
           .then((value) async => {
                 if (value == "Signed in")
                   {
+                    await firestoreService.readAllProductsFireStore(),
                     isFirstLogin = await firestoreService.searchUserFireStore(),
                     if (isFirstLogin == true)
                       {

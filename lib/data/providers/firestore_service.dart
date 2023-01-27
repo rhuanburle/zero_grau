@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uuid/uuid.dart';
 import '../../utils/hive_config.dart';
 import '../models/products_model.dart';
 import '../models/user_model.dart';
+import 'package:zero_grau/constants/constants.dart' as Constants;
+
 
 class FireStoreService {
   FirebaseFirestore dataFirestore = FirebaseFirestore.instance;
@@ -168,5 +171,26 @@ class FireStoreService {
       listNames.add(name);
     });
     print(listNames);
+  }
+
+  void sendNewProducts(i) {
+    String id = Uuid().v1();
+    dataFirestore
+        .collection(Constants.products)
+        .doc(id)
+        .set(i)
+        .then((value) => print("User Added"))
+        .catchError((error) => print("Failed to add user: $error"));
+  }
+
+  void deleteProducts(i) {
+    dataFirestore
+        .collection(Constants.products)
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        doc.reference.delete();
+      });
+    });
   }
 }
