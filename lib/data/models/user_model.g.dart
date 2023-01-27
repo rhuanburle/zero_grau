@@ -21,27 +21,26 @@ class UserModelAdapter extends TypeAdapter<UserModel> {
       name: fields[1] as String?,
       email: fields[2] as String?,
       phone: fields[3] as String?,
-      address: fields[4] as String?,
+      streetAddress: fields[4] as String?,
       city: fields[5] as String?,
       state: fields[6] as String?,
-      country: fields[7] as String?,
-      zipCode: fields[8] as String?,
-      token: fields[9] as String?,
-      role: fields[10] as String?,
-      status: fields[11] as String?,
-      createdAt: fields[12] as String?,
-      updatedAt: fields[13] as String?,
-      deletedAt: fields[14] as String?,
-      number: fields[15] as String?,
-      complement: fields[16] as String?,
-      neighborhood: fields[17] as String?,
+      zipCode: fields[7] as String?,
+      token: fields[8] as String?,
+      role: fields[9] as String?,
+      status: fields[10] as String?,
+      createdAt: fields[11] as String?,
+      updatedAt: fields[12] as String?,
+      deletedAt: fields[13] as String?,
+      number: fields[14] as String?,
+      complement: fields[15] as String?,
+      neighborhood: fields[16] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserModel obj) {
     writer
-      ..writeByte(18)
+      ..writeByte(17)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -51,32 +50,30 @@ class UserModelAdapter extends TypeAdapter<UserModel> {
       ..writeByte(3)
       ..write(obj.phone)
       ..writeByte(4)
-      ..write(obj.address)
+      ..write(obj.streetAddress)
       ..writeByte(5)
       ..write(obj.city)
       ..writeByte(6)
       ..write(obj.state)
       ..writeByte(7)
-      ..write(obj.country)
-      ..writeByte(8)
       ..write(obj.zipCode)
-      ..writeByte(9)
+      ..writeByte(8)
       ..write(obj.token)
-      ..writeByte(10)
+      ..writeByte(9)
       ..write(obj.role)
-      ..writeByte(11)
+      ..writeByte(10)
       ..write(obj.status)
-      ..writeByte(12)
+      ..writeByte(11)
       ..write(obj.createdAt)
-      ..writeByte(13)
+      ..writeByte(12)
       ..write(obj.updatedAt)
-      ..writeByte(14)
+      ..writeByte(13)
       ..write(obj.deletedAt)
-      ..writeByte(15)
+      ..writeByte(14)
       ..write(obj.number)
-      ..writeByte(16)
+      ..writeByte(15)
       ..write(obj.complement)
-      ..writeByte(17)
+      ..writeByte(16)
       ..write(obj.neighborhood);
   }
 

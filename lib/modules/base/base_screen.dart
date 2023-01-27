@@ -4,7 +4,7 @@ import '../../routes/pages_routes.dart';
 import '../pages_navigation_bottom/base_pages.dart';
 import '../pages_navigation_bottom/common_widgets_navigation_page/list_products_controller.dart';
 import 'base_screen_controller.dart';
-import 'drawer_menu.dart';
+import '../drawer/drawer_menu.dart';
 
 class BaseScreen extends StatefulWidget {
   BaseScreen({Key? key}) : super(key: key);

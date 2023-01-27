@@ -5,10 +5,10 @@ import '../models/user_model.dart';
 
 class FireStoreService {
   FirebaseFirestore dataFirestore = FirebaseFirestore.instance;
-  List productsList = [];
   HiveManager hiveManager = HiveManager();
   UserModel userComplete = UserModel();
 
+  List productsList = [];
   List productAlcoolicList = [];
   List productNonAlcoolicList = [];
   List productOthersList = [];
@@ -30,26 +30,42 @@ class FireStoreService {
     }
   }
 
-  sendUserFireStore() async {
-    final registrationUser = await hiveManager.getData(key: 'registrationUser');
+  sendUserFireStore(registrationUser) async {
     await dataFirestore.collection('users').add({
       'name': registrationUser['name'],
       'email': hiveManager.getData(key: 'userEmail'),
       'phone': registrationUser['phone'],
       'zipCode': registrationUser['zipCode'],
-      'address': registrationUser['address'],
+      'streetAddress': registrationUser['streetAddress'],
+      'city': registrationUser['city'],
+      'state': registrationUser['state'],
       'number': registrationUser['number'],
       'complement': registrationUser['complement'],
       'neighborhood': registrationUser['neighborhood'],
-      'city': registrationUser['city'],
-      'state': registrationUser['state'],
-      'country': registrationUser['country'],
+      'referencePoint': registrationUser['referencePoint'],
       'token': hiveManager.getData(key: 'token'),
       'createAt': DateTime.now(),
       'updateAt': DateTime.now(),
       'deleteAt': "",
       'status': 'active',
     });
+  }
+
+  Future<bool> searchUserFireStore() async {
+    final email = await hiveManager.getData(key: 'userEmail');
+    var isFirstLogin;
+    await dataFirestore
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get()
+        .then((user) {
+          if(user.docs.length == 0) {
+             isFirstLogin = true;
+          } else {
+             isFirstLogin = false;
+          }
+    });
+    return isFirstLogin;
   }
 
   readUserFireStore(email) async {
@@ -66,13 +82,12 @@ class FireStoreService {
             email: result.get('email'),
             phone: result.get('phone'),
             zipCode: result.get('zipCode'),
-            address: result.get('address'),
+            streetAddress: result.get('streetAddress'),
             number: result.get('number'),
             complement: result.get('complement'),
             neighborhood: result.get('neighborhood'),
             city: result.get('city'),
             state: result.get('state'),
-            country: result.get('country'),
             token: result.get('token'),
             createdAt: result.get('createAt'),
             updatedAt: result.get('updateAt'),
@@ -113,7 +128,6 @@ class FireStoreService {
     });
     await hiveManager.saveData(key: 'products', data: productsList);
     await filterProducts(productsList);
-    // productsList = await hiveConfig.getData(key: 'products');
   }
 
   filterProducts(productsList) async {

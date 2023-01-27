@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zero_grau/data/providers/services/auth_service.dart';
+import '../../data/providers/firestore_service.dart';
 import '../../routes/pages_routes.dart';
 
 class LoginController extends GetxController {
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  final firestoreService = Get.put(FireStoreService());
   final authService = Get.put(AuthService());
 
-  void login() {
-    if(emailController.text.isEmpty || passwordController.text.isEmpty) {
+  void login(context) async {
+    bool isFirstLogin;
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       Get.snackbar(
         'Erro',
         'Preencha todos os campos',
@@ -20,20 +22,54 @@ class LoginController extends GetxController {
         colorText: Colors.white,
       );
     } else {
-      authService.signIn(email: emailController.text, password: passwordController.text).then((value) => {
-        if(value == "Signed in") {
-          Get.toNamed(PagesRoutes.baseRoute)
-        } else {
-          Get.snackbar(
-            'Erro',
-            'Email ou senha incorretos',
-            snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: Colors.red,
-            colorText: Colors.white,
-          )
-        }
-      });
+      await authService
+          .signIn(
+              email: emailController.text, password: passwordController.text)
+          .then((value) async => {
+                if (value == "Signed in")
+                  {
+                    isFirstLogin = await firestoreService.searchUserFireStore(),
+                    if (isFirstLogin == true)
+                      {
+                       await showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text("Bem vindo ao Zero Grau!"),
+                              content: Text("Para continuar, preencha seu perfil"),
+                              actions: [
+                                TextButton(
+                                  child: Text("Ok"),
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                        Get.offAndToNamed(PagesRoutes.profileRoute, arguments: true),
+                      }
+                    else
+                      {Get.toNamed(PagesRoutes.baseRoute)}
+                  }
+                else
+                  {
+                    Get.snackbar(
+                      'Erro',
+                      'Email ou senha incorretos',
+                      snackPosition: SnackPosition.BOTTOM,
+                      backgroundColor: Colors.red,
+                      colorText: Colors.white,
+                    )
+                  }
+              });
     }
+    // clearFields();
   }
 
+  clearFields() {
+    emailController.clear();
+    passwordController.clear();
+  }
 }

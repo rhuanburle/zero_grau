@@ -3,7 +3,13 @@ import 'package:get/get.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:search_cep/search_cep.dart';
 
+import '../../data/providers/firestore_service.dart';
+
 class ProfileController extends GetxController {
+
+  bool firstLogin = Get.arguments;
+  final firestoreService = Get.find<FireStoreService>();
+
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -18,6 +24,8 @@ class ProfileController extends GetxController {
 
   MaskTextInputFormatter cepMask = MaskTextInputFormatter(
       mask: '#####-###', filter: {"#": RegExp(r'[0-9]')});
+
+
 
   void searchCep() async {
     final viaCepSearchCep = ViaCepSearchCep();
@@ -34,5 +42,23 @@ class ProfileController extends GetxController {
     } catch (e) {
       print(e);
     }
+  }
+
+  saveProfile() {
+    firestoreService.sendUserFireStore(
+      {
+        'name': nameController.text,
+        'email': emailController.text,
+        'phone': phoneController.text,
+        'zipCode': zipCodeController.text,
+        'streetAddress': streetAddressController.text,
+        'city': cityController.text,
+        'state': stateController.text,
+        'number': numberController.text,
+        'complement': complementController.text,
+        'neighborhood': neighborhoodController.text,
+        'referencePoint': referencePointController.text,
+      },
+    );
   }
 }

@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                         width: double.maxFinite,
                         child: ElevatedButton(
                           onPressed: () {
-                            ctrl.login();
+                            ctrl.login(context);
                           },
                           child: Text('Login', style: TextStyle(fontSize: 18)),
                           style: ElevatedButton.styleFrom(

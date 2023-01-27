@@ -13,32 +13,30 @@ class UserModel extends HiveObject{
   @HiveField(3)
   String? phone;
   @HiveField(4)
-  String? address;
+  String? streetAddress;
   @HiveField(5)
   String? city;
   @HiveField(6)
   String? state;
   @HiveField(7)
-  String? country;
-  @HiveField(8)
   String? zipCode;
-  @HiveField(9)
+  @HiveField(8)
   String? token;
-  @HiveField(10)
+  @HiveField(9)
   String? role;
-  @HiveField(11)
+  @HiveField(10)
   String? status;
-  @HiveField(12)
+  @HiveField(11)
   String? createdAt;
-  @HiveField(13)
+  @HiveField(12)
   String? updatedAt;
-  @HiveField(14)
+  @HiveField(13)
   String? deletedAt;
-  @HiveField(15)
+  @HiveField(14)
   String? number;
-  @HiveField(16)
+  @HiveField(15)
   String? complement;
-  @HiveField(17)
+  @HiveField(16)
   String? neighborhood;
 
   UserModel({
@@ -46,10 +44,9 @@ class UserModel extends HiveObject{
     this.name,
     this.email,
     this.phone,
-    this.address,
+    this.streetAddress,
     this.city,
     this.state,
-    this.country,
     this.zipCode,
     this.token,
     this.role,
@@ -68,10 +65,9 @@ class UserModel extends HiveObject{
     name = json['name'];
     email = json['email'];
     phone = json['phone'];
-    address = json['address'];
+    streetAddress = json['streetAddress'];
     city = json['city'];
     state = json['state'];
-    country = json['country'];
     zipCode = json['zipCode'];
     token = json['token'];
     role = json['role'];
@@ -90,10 +86,9 @@ class UserModel extends HiveObject{
     data['name'] = this.name;
     data['email'] = this.email;
     data['phone'] = this.phone;
-    data['address'] = this.address;
+    data['streetAddress'] = this.streetAddress;
     data['city'] = this.city;
     data['state'] = this.state;
-    data['country'] = this.country;
     data['zipCode'] = this.zipCode;
     data['token'] = this.token;
     data['role'] = this.role;
