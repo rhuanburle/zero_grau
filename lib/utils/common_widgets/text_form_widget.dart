@@ -22,6 +22,11 @@ class _TextFormWidgetState extends State<TextFormWidget> {
       controller: widget.textEditingController,
       decoration: InputDecoration(
         labelText: widget.labelText,
+        labelStyle: TextStyle(
+          color: Colors.blue,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+        ),
         isDense: widget.isDense,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
@@ -29,6 +34,7 @@ class _TextFormWidgetState extends State<TextFormWidget> {
           ),
         ),
       ),
+      style: TextStyle(fontSize: 16),
     );
   }
 }

@@ -23,11 +23,11 @@ class ProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              CustomTextField(labelText: 'Nome', prefixIcon: Icon(Icons.person), textEditingController: ctrl.nameController,),
+              CustomTextField(labelText: 'Nome', isDense: true ,prefixIcon: Icon(Icons.person), textEditingController: ctrl.nameController,),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
-              CustomTextField(labelText: 'Telefone', prefixIcon: Icon(Icons.phone), textEditingController: ctrl.phoneController,),
+              CustomTextField(labelText: 'Telefone',isDense: true, prefixIcon: Icon(Icons.phone), textEditingController: ctrl.phoneController,),
               Padding(
                 padding: const EdgeInsets.all(8.0),
               ),
@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      ctrl.searchCep();
+                      ctrl.saveProfile(context);
                     },
                     icon: Icon(
                       Icons.save,

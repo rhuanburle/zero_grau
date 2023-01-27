@@ -31,24 +31,37 @@ class FireStoreService {
   }
 
   sendUserFireStore(registrationUser) async {
-    await dataFirestore.collection('users').add({
-      'name': registrationUser['name'],
-      'email': hiveManager.getData(key: 'userEmail'),
-      'phone': registrationUser['phone'],
-      'zipCode': registrationUser['zipCode'],
-      'streetAddress': registrationUser['streetAddress'],
-      'city': registrationUser['city'],
-      'state': registrationUser['state'],
-      'number': registrationUser['number'],
-      'complement': registrationUser['complement'],
-      'neighborhood': registrationUser['neighborhood'],
-      'referencePoint': registrationUser['referencePoint'],
-      'token': hiveManager.getData(key: 'token'),
-      'createAt': DateTime.now(),
-      'updateAt': DateTime.now(),
-      'deleteAt': "",
-      'status': 'active',
-    });
+    var isUserComplete;
+    try {
+      await dataFirestore.collection('users').add({
+        'name': registrationUser['name'],
+        'email': registrationUser['email'],
+        'phone': registrationUser['phone'],
+        'zipCode': registrationUser['zipCode'],
+        'streetAddress': registrationUser['streetAddress'],
+        'city': registrationUser['city'],
+        'state': registrationUser['state'],
+        'number': registrationUser['number'],
+        'complement': registrationUser['complement'],
+        'neighborhood': registrationUser['neighborhood'],
+        'referencePoint': registrationUser['referencePoint'],
+        'token': registrationUser['token'],
+        'createAt': DateTime.now(),
+        'updateAt': DateTime.now(),
+        'deleteAt': "",
+        'status': 'active',
+      }).then((value) {
+        if (value.id != null) {
+          isUserComplete = true;
+        } else {
+          isUserComplete = false;
+        }
+      });
+    } catch (e) {
+      print(e);
+      return false;
+    }
+    return isUserComplete;
   }
 
   Future<bool> searchUserFireStore() async {
@@ -96,7 +109,6 @@ class FireStoreService {
             role: 'TO DO',
           );
         });
-        hiveManager.saveData(key: 'userComplete', data: userComplete);
       });
     } catch (e) {
       print(e);

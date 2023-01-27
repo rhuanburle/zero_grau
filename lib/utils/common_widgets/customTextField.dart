@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
   CustomTextField(
-      {Key? key, required this.prefixIcon, required this.labelText, this.obscureText = false, required this.textEditingController})
+      {Key? key, required this.prefixIcon, required this.labelText, this.obscureText = false, required this.textEditingController, this.isDense = false})
       : super(key: key);
   final Icon prefixIcon;
   final String labelText;
   final bool obscureText;
+  final bool isDense;
   final TextEditingController textEditingController;
 
   @override
@@ -20,10 +21,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         obscureText: widget.obscureText,
         controller: widget.textEditingController,
         decoration: InputDecoration(
-          isDense: true,
+          isDense: widget.isDense,
           prefixIcon: widget.prefixIcon,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
             borderSide: BorderSide(color: Colors.blue),
           ),
           labelText: widget.labelText,
@@ -33,7 +34,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fontSize: 16,
           ),
         ),
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 16),
       );
   }
 }
