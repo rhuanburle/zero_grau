@@ -57,8 +57,6 @@ class AddProductController extends GetxController {
   }
 }
 
-
-
 // void forItens() {
 //   sendItens.forEach((i) {
 //     // deleteProducts(i);

@@ -89,8 +89,11 @@ class AddProducts extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.blue,
+                        width: 1,
+                      ),
                     ),
                     height: 110,
                     width: 110,
