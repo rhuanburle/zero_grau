@@ -179,7 +179,7 @@ class FireStoreService {
         .collection(Constants.products)
         .doc(id)
         .set(i)
-        .then((value) => print("User Added"))
+        .then((value) => print("$i added"))
         .catchError((error) => print("Failed to add user: $error"));
   }
 

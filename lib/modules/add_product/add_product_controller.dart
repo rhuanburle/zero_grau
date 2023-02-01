@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:zero_grau/data/models/app_data/app_data.dart';
 import '../../data/providers/firestore_service.dart';
 
 class AddProductController extends GetxController {
@@ -19,39 +20,44 @@ class AddProductController extends GetxController {
   TextEditingController stockQtyController = TextEditingController();
 
   void sendNewProduct() {
-    if (
-    nameProductController.text.isNotEmpty &&
-        priceController.text.isNotEmpty &&
-        brandController.text.isNotEmpty &&
-        descriptionController.text.isNotEmpty &&
-        categoryController.text.isNotEmpty &&
-        unitController.text.isNotEmpty &&
-        sizeController.text.isNotEmpty &&
-        stockQtyController.text.isNotEmpty
-    ) {
-      try {
-        dataFirestore.sendNewProducts({
-          'name': nameProductController.text,
-          'price': priceController.text,
-          'image': imageProduct,
-          'description': descriptionController.text,
-          'category': categoryController.text,
-          'brand': brandController.text,
-          'unit': unitController.text,
-          'size': sizeController.text,
-          'alcoolic': isAlcoholic.value,
-          'stockQty': stockQtyController.text,
-        });
-      } catch (e) {
-        print(e);
-      }
-    } else {
-      Get.snackbar(
-        'Erro', 'Preencha todos os campos', snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.red,
-        colorText: Colors.white,);
-    }
+    // if (
+    // nameProductController.text.isNotEmpty &&
+    //     priceController.text.isNotEmpty &&
+    //     brandController.text.isNotEmpty &&
+    //     descriptionController.text.isNotEmpty &&
+    //     categoryController.text.isNotEmpty &&
+    //     unitController.text.isNotEmpty &&
+    //     sizeController.text.isNotEmpty &&
+    //     stockQtyController.text.isNotEmpty
+    // ) {
+    //   try {
+        sendItens.forEach((i) {
+          dataFirestore.sendNewProducts(i);
+        }
+        );
+        // dataFirestore.sendNewProducts({
+        //   'name': nameProductController.text,
+        //   'price': priceController.text,
+        //   'image': imageProduct,
+        //   'description': descriptionController.text,
+        //   'category': categoryController.text,
+        //   'brand': brandController.text,
+        //   'unit': unitController.text,
+        //   'size': sizeController.text,
+        //   'alcoolic': isAlcoholic.value,
+        //   'stockQty': stockQtyController.text,
+        // });
+    //   } catch (e) {
+    //     print(e);
+    //   }
+    // } else {
+    //   Get.snackbar(
+    //     'Erro', 'Preencha todos os campos', snackPosition: SnackPosition.BOTTOM,
+    //     backgroundColor: Colors.red,
+    //     colorText: Colors.white,);
+    // }
   }
+
   void getProductImage() async {
     imageProduct = await ImagePicker().pickImage(source: ImageSource.gallery);
   }
